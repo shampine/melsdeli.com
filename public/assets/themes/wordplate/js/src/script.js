@@ -1,5 +1,5 @@
 ;(function($) {
 
-  $('input, textarea').placeholder();
+  console.log("Made with <3 in DTLA");
 
 })(jQuery);

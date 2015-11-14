@@ -14,18 +14,18 @@ module.exports = function (grunt) {
         files: {
           'public/assets/themes/wordplate/js/main.js': 
             [
-              'public/assets/themes/wordplate/js/src/bootstrap/affix.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/alert.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/button.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/carousel.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/collapse.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/dropdown.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/modal.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/tooltip.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/popover.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/scrollspy.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/tab.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/transition.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/affix.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/alert.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/button.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/carousel.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/collapse.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/dropdown.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/modal.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/tooltip.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/popover.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/scrollspy.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/tab.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/transition.js',
               'public/assets/themes/wordplate/js/src/libs/*.js',
               'public/assets/themes/wordplate/js/src/*.js'
             ]
@@ -38,18 +38,18 @@ module.exports = function (grunt) {
         files: {
           'public/assets/themes/wordplate/js/main.js': 
             [
-              'public/assets/themes/wordplate/js/src/bootstrap/affix.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/alert.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/button.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/carousel.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/collapse.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/dropdown.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/modal.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/tooltip.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/popover.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/scrollspy.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/tab.js',
-              'public/assets/themes/wordplate/js/src/bootstrap/transition.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/affix.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/alert.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/button.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/carousel.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/collapse.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/dropdown.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/modal.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/tooltip.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/popover.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/scrollspy.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/tab.js',
+              // 'public/assets/themes/wordplate/js/src/bootstrap/transition.js',
               'public/assets/themes/wordplate/js/src/libs/*.js',
               'public/assets/themes/wordplate/js/src/*.js'
             ]
@@ -62,7 +62,6 @@ module.exports = function (grunt) {
         options: {
           config: 'public/assets/themes/wordplate/css/config.rb',
           sassDir: 'public/assets/themes/wordplate/css/sass',
-          imagesDir: 'public/assets/themes/wordplate/img',
           cssDir: 'public/assets/themes/wordplate/css',
           environment: 'production',
           outputStyle: 'compressed',
