@@ -1,1 +1,1 @@
-!function(a){console.log("Made with <3 in DTLA")}(jQuery);
+!function(a){console.log("<3 DTLA")}(jQuery);

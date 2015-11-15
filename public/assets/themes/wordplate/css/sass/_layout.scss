@@ -1,7 +1,74 @@
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+hr {
+  max-width: 280px;
+  margin: 15px auto;
+  color: $white;
+}
+
 .masthead {
-  margin-top: 15px;
   img {
     display: block;
-    margin: 0 auto;
+    margin: 15px auto;
+  }
+}
+
+.menu {
+
+}
+
+.sandwiches, .sides {
+  padding-left: 0px;
+  list-style: none;
+  li {
+    padding: 5px 0px;
+  }
+}
+
+.name, .description {
+  margin: 0px;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.description {
+  font-style: italic;
+}
+
+.meta {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.social {
+  padding-left: 0px;
+  list-style: none;
+  li {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    margin-right: 3px;
+    margin-left: 3px;
+    border-radius: 6px;
+    background-color: $white;
+    text-align: center;
+    i {
+      padding-top: 3px;
+      color: $background;
+      font-size: 20px;
+    }
+    &:hover, &:active, &:focus {
+      opacity: .9;
+      i {
+        color: darken($background, 10%);
+      }
+    }
   }
 }

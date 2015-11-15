@@ -1,5 +1,5 @@
 ;(function($) {
 
-  console.log("Made with <3 in DTLA");
+  console.log("<3 DTLA");
 
 })(jQuery);
