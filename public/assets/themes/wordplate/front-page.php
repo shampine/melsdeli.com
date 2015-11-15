@@ -27,7 +27,7 @@ if(have_posts()) : while(have_posts()) : the_post();
         if(is_array($menu->sandwiches) && sizeof($menu->sandwiches)) {
           echo '<ul class="sandwiches">';
           foreach($menu->sandwiches as $sandwich) {
-            $price = isset($sandwich['price']) && $sandwich['price'] !== false
+            $price = isset($sandwich['price']) && $sandwich['price'] !== false ? '<span>'.$sandwich['price'].'</span>' : '';
             echo '
               <li>
                 <p class="name">'.$sandwich['name'].$price.'</p>
