@@ -6,7 +6,7 @@ body {
 
 hr {
   max-width: 280px;
-  margin: 15px auto;
+  margin: 35px auto;
   color: $white;
 }
 
@@ -18,7 +18,8 @@ hr {
 }
 
 .menu {
-
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .sandwiches, .sides {
@@ -39,6 +40,10 @@ hr {
 
 .description {
   font-style: italic;
+}
+
+.price {
+  float: right;
 }
 
 .meta {
@@ -71,4 +76,9 @@ hr {
       }
     }
   }
+}
+
+.four-oh-four {
+  margin: 100px auto;
+  text-align: center;
 }
