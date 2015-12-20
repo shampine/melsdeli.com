@@ -18,6 +18,7 @@
         } ?>
         <ul class="social">
           <li><a href="https://www.facebook.com/MelsDeliDTLA/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/melsdelidtla/" target="_blank"><i class="fa fa-instagram"></i></a></li>
           <li><a href="http://www.yelp.com/biz/mels-deli-los-angeles" target="_blank"><i class="fa fa-yelp"></i></a></li>
         </ul>
         <div class="location"><?php
