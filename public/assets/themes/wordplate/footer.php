@@ -10,6 +10,12 @@
     "map"      => get_field('map', $front),
   ); ?>
 
+  <div class="eat24-wrapper">
+    <a class="eat24-sq-brnd" 
+       href="http://eat24hrs.com/restaurants/order2/index.php?id=67656"
+       title="Order Online with EAT24">Order Online
+    </a>
+  </div>
   <hr>
   <div class="container meta">
     <div class="row">

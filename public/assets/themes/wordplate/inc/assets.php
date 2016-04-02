@@ -3,6 +3,8 @@
 function wordplate_scripts() {
 
   // CSS
+  wp_enqueue_style('eat24', 'http://eat24hrs.com/buttons/css/eat24-button-branded-sq.css', false, false);
+
   $screen = '/css/screen.css';
   $screenFilePath = get_template_directory() . $screen;
   wp_enqueue_style('screen', get_bloginfo('template_directory') . $screen, false, filemtime($screenFilePath));

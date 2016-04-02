@@ -1,0 +1,21 @@
+div.eat24-wrapper {
+  margin: 25px auto 30px;
+}
+
+a.eat24-sq-brnd {
+  font-size: 16px;
+  background-color: #929292;
+  color: #ffffff;
+}
+
+a.eat24-sq-brnd:hover {
+  background-color: #969696;
+}
+
+a.eat24-sq-brnd::after {
+  border-color: transparent transparent transparent #fff;
+}
+
+a.eat24-sq-brnd::before {
+  background-image: url(http://eat24hrs.com/buttons/button-logos/eat24-brand-ffffff.png);
+}
