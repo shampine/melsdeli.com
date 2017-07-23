@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
+class ComposerStaticInit4d82a14529f8610245307ff41cf146cf
 {
     public static $files = array (
         '995b589e693a50f54393aa31ee1c3763' => __DIR__ . '/..' . '/yoast/whip/src/facades/wordpress.php',
@@ -107,8 +107,10 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Bulk_List_Table' => __DIR__ . '/../..' . '/admin/class-bulk-editor-list-table.php',
         'WPSEO_Bulk_Title_Editor_List_Table' => __DIR__ . '/../..' . '/admin/class-bulk-title-editor-list-table.php',
         'WPSEO_Config_Component' => __DIR__ . '/../..' . '/admin/config-ui/components/interface-component.php',
+        'WPSEO_Config_Component_Configuration_Choices' => __DIR__ . '/../..' . '/admin/config-ui/components/class-component-configuration-choices.php',
         'WPSEO_Config_Component_Connect_Google_Search_Console' => __DIR__ . '/../..' . '/admin/config-ui/components/class-component-connect-google-search-console.php',
         'WPSEO_Config_Component_Mailchimp_Signup' => __DIR__ . '/../..' . '/admin/config-ui/components/class-component-mailchimp-signup.php',
+        'WPSEO_Config_Component_Suggestions' => __DIR__ . '/../..' . '/admin/config-ui/components/class-component-suggestions.php',
         'WPSEO_Config_Factory_Post_Type' => __DIR__ . '/../..' . '/admin/config-ui/factories/class-factory-post-type.php',
         'WPSEO_Config_Field' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field.php',
         'WPSEO_Config_Field_Choice' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-choice.php',
@@ -116,6 +118,7 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Config_Field_Company_Logo' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-company-logo.php',
         'WPSEO_Config_Field_Company_Name' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-company-name.php',
         'WPSEO_Config_Field_Company_Or_Person' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-company-or-person.php',
+        'WPSEO_Config_Field_Configuration_Choices' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-configuration-choices.php',
         'WPSEO_Config_Field_Connect_Google_Search_Console' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-connect-google-search-console.php',
         'WPSEO_Config_Field_Environment' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-environment.php',
         'WPSEO_Config_Field_Mailchimp_Signup' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-mailchimp-signup.php',
@@ -135,6 +138,7 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Config_Field_Site_Type' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-site-type.php',
         'WPSEO_Config_Field_Social_Profiles_Intro' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-social-profiles-intro.php',
         'WPSEO_Config_Field_Success_Message' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-success-message.php',
+        'WPSEO_Config_Field_Suggestions' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-suggestions.php',
         'WPSEO_Config_Field_Upsell_Configuration_Service' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-upsell-configuration-service.php',
         'WPSEO_Config_Field_Upsell_Site_Review' => __DIR__ . '/../..' . '/admin/config-ui/fields/class-field-upsell-site-review.php',
         'WPSEO_Configuration_Components' => __DIR__ . '/../..' . '/admin/config-ui/class-configuration-components.php',
@@ -144,7 +148,12 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Configuration_Service' => __DIR__ . '/../..' . '/admin/config-ui/class-configuration-service.php',
         'WPSEO_Configuration_Storage' => __DIR__ . '/../..' . '/admin/config-ui/class-configuration-storage.php',
         'WPSEO_Configuration_Structure' => __DIR__ . '/../..' . '/admin/config-ui/class-configuration-structure.php',
+        'WPSEO_Configuration_Translations' => __DIR__ . '/../..' . '/admin/config-ui/class-configuration-translations.php',
+        'WPSEO_Cornerstone' => __DIR__ . '/../..' . '/admin/class-cornerstone.php',
+        'WPSEO_Cornerstone_Field' => __DIR__ . '/../..' . '/admin/class-cornerstone-field.php',
+        'WPSEO_Cornerstone_Filter' => __DIR__ . '/../..' . '/admin/class-cornerstone-filter.php',
         'WPSEO_Customizer' => __DIR__ . '/../..' . '/admin/class-customizer.php',
+        'WPSEO_Database_Proxy' => __DIR__ . '/../..' . '/admin/class-database-proxy.php',
         'WPSEO_Export' => __DIR__ . '/../..' . '/admin/class-export.php',
         'WPSEO_Features' => __DIR__ . '/../..' . '/inc/class-wpseo-features.php',
         'WPSEO_Frontend' => __DIR__ . '/../..' . '/frontend/class-frontend.php',
@@ -175,10 +184,35 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Import_WPSEO' => __DIR__ . '/../..' . '/admin/class-import-wpseo.php',
         'WPSEO_Import_WPSEO_Hooks' => __DIR__ . '/../..' . '/admin/import/class-import-wpseo-hooks.php',
         'WPSEO_Import_WooThemes_SEO' => __DIR__ . '/../..' . '/admin/class-import-woothemes-seo.php',
+        'WPSEO_Installable' => __DIR__ . '/../..' . '/admin/interface-installable.php',
         'WPSEO_Installation' => __DIR__ . '/../..' . '/inc/class-wpseo-installation.php',
         'WPSEO_JSON_LD' => __DIR__ . '/../..' . '/frontend/class-json-ld.php',
+        'WPSEO_Link' => __DIR__ . '/../..' . '/admin/links/class-link.php',
+        'WPSEO_Link_Cleanup_Transient' => __DIR__ . '/../..' . '/admin/links/class-link-cleanup-transient.php',
+        'WPSEO_Link_Column_Count' => __DIR__ . '/../..' . '/admin/links/class-link-column-count.php',
+        'WPSEO_Link_Columns' => __DIR__ . '/../..' . '/admin/links/class-link-columns.php',
+        'WPSEO_Link_Compatibility_Notifier' => __DIR__ . '/../..' . '/admin/links/class-link-compatibility-notifier.php',
+        'WPSEO_Link_Content_Processor' => __DIR__ . '/../..' . '/admin/links/class-link-content-processor.php',
+        'WPSEO_Link_Extractor' => __DIR__ . '/../..' . '/admin/links/class-link-extractor.php',
+        'WPSEO_Link_Factory' => __DIR__ . '/../..' . '/admin/links/class-link-factory.php',
+        'WPSEO_Link_Filter' => __DIR__ . '/../..' . '/admin/links/class-link-filter.php',
+        'WPSEO_Link_Installer' => __DIR__ . '/../..' . '/admin/links/class-link-installer.php',
+        'WPSEO_Link_Internal_Lookup' => __DIR__ . '/../..' . '/admin/links/class-link-internal-lookup.php',
+        'WPSEO_Link_Notifier' => __DIR__ . '/../..' . '/admin/links/class-link-notifier.php',
+        'WPSEO_Link_Query' => __DIR__ . '/../..' . '/admin/links/class-link-query.php',
+        'WPSEO_Link_Reindex_Dashboard' => __DIR__ . '/../..' . '/admin/links/class-link-reindex-dashboard.php',
+        'WPSEO_Link_Reindex_Post_Endpoint' => __DIR__ . '/../..' . '/admin/links/class-link-reindex-post-endpoint.php',
+        'WPSEO_Link_Reindex_Post_Service' => __DIR__ . '/../..' . '/admin/links/class-link-reindex-post-service.php',
+        'WPSEO_Link_Storage' => __DIR__ . '/../..' . '/admin/links/class-link-storage.php',
+        'WPSEO_Link_Table_Accessible' => __DIR__ . '/../..' . '/admin/links/class-link-table-accessible.php',
+        'WPSEO_Link_Table_Accessible_Notifier' => __DIR__ . '/../..' . '/admin/links/class-link-table-accessible-notifier.php',
+        'WPSEO_Link_Type_Classifier' => __DIR__ . '/../..' . '/admin/links/class-link-type-classifier.php',
+        'WPSEO_Link_Utils' => __DIR__ . '/../..' . '/admin/links/class-link-utils.php',
+        'WPSEO_Link_Watcher' => __DIR__ . '/../..' . '/admin/links/class-link-watcher.php',
         'WPSEO_Meta' => __DIR__ . '/../..' . '/inc/class-wpseo-meta.php',
         'WPSEO_Meta_Columns' => __DIR__ . '/../..' . '/admin/class-meta-columns.php',
+        'WPSEO_Meta_Storage' => __DIR__ . '/../..' . '/admin/class-meta-storage.php',
+        'WPSEO_Meta_Table_Accessible' => __DIR__ . '/../..' . '/admin/class-meta-table-accessible.php',
         'WPSEO_Metabox' => __DIR__ . '/../..' . '/admin/metabox/class-metabox.php',
         'WPSEO_Metabox_Addon_Tab_Section' => __DIR__ . '/../..' . '/admin/metabox/class-metabox-addon-section.php',
         'WPSEO_Metabox_Analysis' => __DIR__ . '/../..' . '/admin/metabox/interface-metabox-analysis.php',
@@ -258,6 +292,8 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
         'WPSEO_Twitter' => __DIR__ . '/../..' . '/frontend/class-twitter.php',
         'WPSEO_Upgrade' => __DIR__ . '/../..' . '/inc/class-upgrade.php',
         'WPSEO_Utils' => __DIR__ . '/../..' . '/inc/class-wpseo-utils.php',
+        'WPSEO_WordPress_Integration' => __DIR__ . '/../..' . '/inc/interface-wpseo-wordpress-integration.php',
+        'WPSEO_Yoast_Columns' => __DIR__ . '/../..' . '/admin/class-yoast-columns.php',
         'Whip_BasicMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_BasicMessage.php',
         'Whip_Configuration' => __DIR__ . '/..' . '/yoast/whip/src/Whip_Configuration.php',
         'Whip_EmptyProperty' => __DIR__ . '/..' . '/yoast/whip/src/exceptions/Whip_EmptyProperty.php',
@@ -312,8 +348,8 @@ class ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita3d06d5a79ce3cd78e693012cc788f4a::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit4d82a14529f8610245307ff41cf146cf::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4d82a14529f8610245307ff41cf146cf::$classMap;
 
         }, null, ClassLoader::class);
     }
