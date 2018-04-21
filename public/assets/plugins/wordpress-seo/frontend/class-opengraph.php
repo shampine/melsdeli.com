@@ -1,5 +1,7 @@
 <?php
 /**
+ * WPSEO plugin file.
+ *
  * @package WPSEO\Frontend
  */
 
@@ -8,17 +10,13 @@
  */
 class WPSEO_OpenGraph {
 
-	/**
-	 * @var array $options Options for the OpenGraph Settings.
-	 */
-	public $options = array();
+	/** @var WPSEO_Frontend_Page_Type */
+	protected $frontend_page_type;
 
 	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
-		$this->options = WPSEO_Options::get_option( 'wpseo_social' );
-
 		if ( isset( $GLOBALS['fb_ver'] ) || class_exists( 'Facebook_Loader', false ) ) {
 			add_filter( 'fb_meta_tags', array( $this, 'facebook_filter' ), 10, 1 );
 		}
@@ -28,7 +26,7 @@ class WPSEO_OpenGraph {
 			add_action( 'wpseo_opengraph', array( $this, 'locale' ), 1 );
 			add_action( 'wpseo_opengraph', array( $this, 'type' ), 5 );
 			add_action( 'wpseo_opengraph', array( $this, 'og_title' ), 10 );
-			add_action( 'wpseo_opengraph', array( $this, 'site_owner' ), 20 );
+			add_action( 'wpseo_opengraph', array( $this, 'app_id' ), 20 );
 			add_action( 'wpseo_opengraph', array( $this, 'description' ), 11 );
 			add_action( 'wpseo_opengraph', array( $this, 'url' ), 12 );
 			add_action( 'wpseo_opengraph', array( $this, 'site_name' ), 13 );
@@ -44,6 +42,9 @@ class WPSEO_OpenGraph {
 		}
 		add_filter( 'jetpack_enable_open_graph', '__return_false' );
 		add_action( 'wpseo_head', array( $this, 'opengraph' ), 30 );
+
+		// Class for determine the current page type.
+		$this->frontend_page_type = new WPSEO_Frontend_Page_Type();
 	}
 
 	/**
@@ -117,9 +118,6 @@ class WPSEO_OpenGraph {
 		$namespaces = array(
 			'og: http://ogp.me/ns#',
 		);
-		if ( $this->options['fbadminapp'] != 0 || ( is_array( $this->options['fb_admins'] ) && $this->options['fb_admins'] !== array() ) ) {
-			$namespaces[] = 'fb: http://ogp.me/ns/fb#';
-		}
 
 		/**
 		 * Allow for adding additional namespaces to the <html> prefix attributes.
@@ -184,45 +182,10 @@ class WPSEO_OpenGraph {
 	 */
 	public function website_facebook() {
 
-		if ( 'article' === $this->type( false ) && ! empty( $this->options['facebook_site'] ) ) {
-			$this->og_tag( 'article:publisher', $this->options['facebook_site'] );
+		if ( 'article' === $this->type( false ) && WPSEO_Options::get( 'facebook_site', '' ) !== '' ) {
+			$this->og_tag( 'article:publisher', WPSEO_Options::get( 'facebook_site' ) );
 
 			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Outputs the site owner.
-	 *
-	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
-	 * @return boolean
-	 */
-	public function site_owner() {
-		if ( isset( $this->options['fbadminapp'] ) && $this->options['fbadminapp'] != 0 ) {
-			$this->og_tag( 'fb:app_id', $this->options['fbadminapp'] );
-
-			return true;
-		}
-		elseif ( isset( $this->options['fb_admins'] ) && is_array( $this->options['fb_admins'] ) && $this->options['fb_admins'] !== array() ) {
-			$adminstr = implode( ',', array_keys( $this->options['fb_admins'] ) );
-			/**
-			 * Filter: 'wpseo_opengraph_admin' - Allow developer to filter the fb:admins string put out by Yoast SEO.
-			 *
-			 * @api string $adminstr The admin string
-			 */
-			$adminstr = apply_filters( 'wpseo_opengraph_admin', $adminstr );
-			if ( is_string( $adminstr ) && $adminstr !== '' ) {
-
-				$admins = explode( ',', $adminstr );
-
-				foreach ( $admins as $admin_id ) {
-					$this->og_tag( 'fb:admins', $admin_id );
-				}
-
-				return true;
-			}
 		}
 
 		return false;
@@ -239,12 +202,10 @@ class WPSEO_OpenGraph {
 	 */
 	public function og_title( $echo = true ) {
 
-		$frontend      = WPSEO_Frontend::get_instance();
-		$is_posts_page = $frontend->is_posts_page();
+		$frontend = WPSEO_Frontend::get_instance();
 
-		if ( is_singular() || $is_posts_page ) {
-
-			$post_id = ( $is_posts_page ) ? get_option( 'page_for_posts' ) : get_the_ID();
+		if ( $this->frontend_page_type->is_simple_page() ) {
+			$post_id = $this->frontend_page_type->get_simple_page_id();
 			$post    = get_post( $post_id );
 			$title   = WPSEO_Meta::get_value( 'opengraph-title', $post_id );
 
@@ -257,7 +218,7 @@ class WPSEO_OpenGraph {
 			}
 		}
 		elseif ( is_front_page() ) {
-			$title = ( isset( $this->options['og_frontpage_title'] ) && $this->options['og_frontpage_title'] !== '' ) ? $this->options['og_frontpage_title'] : $frontend->title( '' );
+			$title = ( WPSEO_Options::get( 'og_frontpage_title', '' ) !== '' ) ? WPSEO_Options::get( 'og_frontpage_title' ) : $frontend->title( '' );
 		}
 		elseif ( is_category() || is_tax() || is_tag() ) {
 			$title = WPSEO_Taxonomy_Meta::get_meta_without_term( 'opengraph-title' );
@@ -357,7 +318,7 @@ class WPSEO_OpenGraph {
 		}
 
 		// Convert locales like "es" to "es_ES", in case that works for the given locale (sometimes it does).
-		if ( strlen( $locale ) == 2 ) {
+		if ( strlen( $locale ) === 2 ) {
 			$locale = strtolower( $locale ) . '_' . strtoupper( $locale );
 		}
 
@@ -573,7 +534,7 @@ class WPSEO_OpenGraph {
 	 * @param string|boolean $image Optional image URL.
 	 */
 	public function image( $image = false ) {
-		$opengraph_images = new WPSEO_OpenGraph_Image( $this->options, $image );
+		$opengraph_images = new WPSEO_OpenGraph_Image( $image );
 
 		foreach ( $opengraph_images->get_images() as $img ) {
 			$this->og_tag( 'og:image', esc_url( $img ) );
@@ -615,18 +576,16 @@ class WPSEO_OpenGraph {
 		$frontend = WPSEO_Frontend::get_instance();
 
 		if ( is_front_page() ) {
-			if ( isset( $this->options['og_frontpage_desc'] ) && $this->options['og_frontpage_desc'] !== '' ) {
-				$ogdesc = wpseo_replace_vars( $this->options['og_frontpage_desc'], null );
+			if ( WPSEO_Options::get( 'og_frontpage_desc', '' ) !== '' ) {
+				$ogdesc = wpseo_replace_vars( WPSEO_Options::get( 'og_frontpage_desc' ), null );
 			}
 			else {
 				$ogdesc = $frontend->metadesc( false );
 			}
 		}
 
-		$is_posts_page = $frontend->is_posts_page();
-
-		if ( is_singular() || $is_posts_page ) {
-			$post_id = ( $is_posts_page ) ? get_option( 'page_for_posts' ) : get_the_ID();
+		if ( $this->frontend_page_type->is_simple_page() ) {
+			$post_id = $this->frontend_page_type->get_simple_page_id();
 			$post    = get_post( $post_id );
 			$ogdesc  = WPSEO_Meta::get_value( 'opengraph-description', $post_id );
 
@@ -640,7 +599,7 @@ class WPSEO_OpenGraph {
 
 			// Tag og:description is still blank so grab it from get_the_excerpt().
 			if ( ! is_string( $ogdesc ) || ( is_string( $ogdesc ) && $ogdesc === '' ) ) {
-				$ogdesc = str_replace( '[&hellip;]', '&hellip;', strip_tags( get_the_excerpt() ) );
+				$ogdesc = str_replace( '[&hellip;]', '&hellip;', wp_strip_all_tags( get_the_excerpt() ) );
 			}
 		}
 
@@ -651,7 +610,7 @@ class WPSEO_OpenGraph {
 			}
 
 			if ( $ogdesc === '' ) {
-				$ogdesc = trim( strip_tags( term_description() ) );
+				$ogdesc = wp_strip_all_tags( term_description() );
 			}
 
 			if ( $ogdesc === '' ) {
@@ -781,11 +740,43 @@ class WPSEO_OpenGraph {
 		$this->og_tag( 'article:published_time', $pub );
 
 		$mod = get_the_modified_date( DATE_W3C );
-		if ( $mod != $pub ) {
+		if ( $mod !== $pub ) {
 			$this->og_tag( 'article:modified_time', $mod );
 			$this->og_tag( 'og:updated_time', $mod );
 		}
 
 		return true;
 	}
+
+	/**
+	 * Outputs the Facebook app_id.
+	 *
+	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 *
+	 * @return void
+	 */
+	public function app_id() {
+		$app_id = WPSEO_Options::get( 'fbadminapp', '' );
+		if ( $app_id !== '' ) {
+			$this->og_tag( 'fb:app_id', $app_id );
+		}
+	}
+
+
+	/**
+	 * Outputs the site owner.
+	 *
+	 * @link https://developers.facebook.com/docs/reference/opengraph/object-type/article/
+	 * @return void
+	 *
+	 * @deprecated 7.1
+	 * @codeCoverageIgnore
+	 */
+	public function site_owner() {
+		// As this is a frontend method, we want to make sure it is not displayed for non-logged in users.
+		if ( function_exists( 'wp_get_current_user' ) && current_user_can( 'manage_options' ) ) {
+			_deprecated_function( 'WPSEO_OpenGraph::site_owner', '7.1', null );
+		}
+	}
+
 } /* End of class */
